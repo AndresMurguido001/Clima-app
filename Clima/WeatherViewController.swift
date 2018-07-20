@@ -94,7 +94,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     func updateUIWithWeatherData(){
         cityLabel.text = String(weatherObject.city)
         weatherIcon.image = UIImage(named: weatherObject.weatherIconName)
-        temperatureLabel.text = String(weatherObject.temp)
+        temperatureLabel.text = "\(weatherObject.temp)°"
     }
     
     
@@ -132,7 +132,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     //Write the userEnteredANewCityName Delegate method here:
     func userEneteredNewCity(name: String) {
-        cityLabel.text = name
+        getWeather(url: WEATHER_URL, paramaters: ["q" : name, "appid" : APP_ID])
     }
 
     
